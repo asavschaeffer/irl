@@ -293,9 +293,29 @@ export const Service: IAuthService = {
     // refreshToken: string
   ): Promise<IAuthResponse> {
     try {
+      const accessToken =
+        params?.access_token ?? params?.accessToken ?? params?.access_token;
+      const refreshToken =
+        params?.refresh_token ?? params?.refreshToken ?? params?.refresh_token;
+
+      if (!accessToken || !refreshToken) {
+        return {
+          _original: null,
+          data: {
+            user: null,
+            session: null,
+          },
+          error: {
+            status: 400,
+            message:
+              'Missing access_token/refresh_token in reset link. Please request a new password reset email.',
+          },
+        };
+      }
+
       const originalResponse = await client.auth.setSession({
-        access_token: params.accessToken,
-        refresh_token: params.refreshToken,
+        access_token: accessToken,
+        refresh_token: refreshToken,
       });
 
       const response: any = {

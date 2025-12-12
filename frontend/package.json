@@ -9,12 +9,12 @@
   ],
   "license": "MIT",
   "scripts": {
-    "expo:start": "cd apps/expo && DARK_MODE=media EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start",
-    "expo:web": "cd apps/expo && DARK_MODE=class EXPO_USE_METRO_WORKSPACE_ROOT=1  npx expo start --web",
-    "expo:ios": "cd apps/expo && DARK_MODE=media EXPO_USE_METRO_WORKSPACE_ROOT=1  npx expo start --ios",
-    "expo:android": "cd apps/expo && DARK_MODE=media EXPO_USE_METRO_WORKSPACE_ROOT=1  npx expo start --android",
-    "expo:android-dev-build": "cd apps/expo &&  DARK_MODE=media npx expo run:android",
-    "expo:ios-dev-build": "cd apps/expo && DARK_MODE=media npx expo run:ios",
+    "expo:start": "cd apps/expo && cross-env DARK_MODE=media EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start",
+    "expo:web": "cd apps/expo && cross-env DARK_MODE=class EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --web",
+    "expo:ios": "cd apps/expo && cross-env DARK_MODE=media EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --ios",
+    "expo:android": "cd apps/expo && cross-env DARK_MODE=media EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --android",
+    "expo:android-dev-build": "cd apps/expo && cross-env DARK_MODE=media npx expo run:android",
+    "expo:ios-dev-build": "cd apps/expo && cross-env DARK_MODE=media npx expo run:ios",
     "expo:storybook-web": "cd apps/expo && DARK_MODE=class storybook dev -p 6006",
     "expo:build-storybook": "cd apps/expo && storybook build",
     "expo:storybook-generate": "cd apps/expo && sb-rn-get-stories --config-path .ondevice",
@@ -32,5 +32,7 @@
   "engines": {
     "node": ">=20"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  }
 }

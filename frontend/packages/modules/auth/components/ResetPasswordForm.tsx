@@ -92,7 +92,7 @@ const ResetPasswordForm = (params: any) => {
       console.error(error);
     }
     // }
-  });
+  }, [params?.access_token, params?.refresh_token, params?.accessToken, params?.refreshToken]);
 
   const {
     control,
