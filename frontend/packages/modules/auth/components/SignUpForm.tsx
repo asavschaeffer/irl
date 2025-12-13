@@ -103,9 +103,11 @@ export default function SignUpForm() {
           );
 
           if (response?.error) {
-            throw new Error(response.error.message);
+            const status = response.error.status ? ` (HTTP ${response.error.status})` : '';
+            throw new Error(`${response.error.message}${status}`);
           }
 
+          // Supabase can legitimately return `user` but no `session` if email confirmation is enabled.
           if (response.data?.user && response.data.session) {
             showToast(toast, {
               action: 'success',
@@ -114,9 +116,17 @@ export default function SignUpForm() {
             });
             reset();
             router.replace(`${routes.signIn.path}`);
+          } else if (response.data?.user && !response.data.session) {
+            showToast(toast, {
+              action: 'success',
+              message:
+                'Account created. Please check your email to confirm your account, then sign in.',
+            });
+            reset();
+            router.replace(`${routes.signIn.path}`);
           } else {
             throw new Error(
-              'Sign-up response is missing user or session data.'
+              'Sign-up did not return a user. Please try again, or check your Supabase Auth settings.'
             );
           }
         } catch (error: any) {
