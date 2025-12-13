@@ -5,12 +5,12 @@
   "main": "index.js",
   "workspaces": [
     "packages/*",
-    "apps/*"
+    "apps/expo"
   ],
   "license": "MIT",
   "scripts": {
-    "expo:start": "cd apps/expo && cross-env DARK_MODE=media EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start",
-    "expo:web": "cd apps/expo && cross-env DARK_MODE=class EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --web",
+    "expo:start": "cd apps/expo && cross-env DARK_MODE=media EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --port 8081",
+    "expo:web": "cd apps/expo && cross-env DARK_MODE=class EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --web --port 8081",
     "expo:ios": "cd apps/expo && cross-env DARK_MODE=media EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --ios",
     "expo:android": "cd apps/expo && cross-env DARK_MODE=media EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --android",
     "expo:android-dev-build": "cd apps/expo && cross-env DARK_MODE=media npx expo run:android",
@@ -27,7 +27,7 @@
     "build-storybook": "cd apps/next && storybook build",
     "lint": "cd apps/next && npm run lint && cd ../expo && npm run lint",
     "format": "cd apps/next && npx prettier --write \"{,!(node_modules)/**/}*.{tsx,ts,js,jsx}\" && cd ../expo && npx prettier --write \"{,!(node_modules)/**/}*.{tsx,ts,js,jsx}\"",
-    "postinstall": "patch-package"
+    "postinstall": "echo \"postinstall skipped (patch-package disabled for Expo-only workspace)\""
   },
   "engines": {
     "node": ">=20"
