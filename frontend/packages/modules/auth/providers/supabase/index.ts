@@ -9,6 +9,8 @@ import {
   IResetPasswordResponse,
   ISendOTPResponse,
 } from '@app-launch-kit/modules/auth/types/IAuthProvider';
+import config from '@app-launch-kit/config';
+import { Platform } from 'react-native';
 
 export const Service: IAuthService = {
   async signUpWithEmailPassword(
@@ -16,7 +18,22 @@ export const Service: IAuthService = {
     password: string
   ): Promise<IAuthResponse> {
     try {
-      const originalResponse = await client.auth.signUp({ email, password });
+      // Ensure email confirmation links land on a real screen.
+      // Web: use current origin. Native: fall back to configured scheme URL.
+      const origin =
+        Platform.OS === 'web' && typeof window !== 'undefined'
+          ? window.location.origin
+          : config.env.SITE_URL;
+
+      const emailRedirectTo = origin
+        ? `${origin.replace(/\/$/, '')}${config.routes.signIn.path}`
+        : undefined;
+
+      const originalResponse = await client.auth.signUp({
+        email,
+        password,
+        options: emailRedirectTo ? { emailRedirectTo } : undefined,
+      });
 
       const response: any = {
         _original: originalResponse,
