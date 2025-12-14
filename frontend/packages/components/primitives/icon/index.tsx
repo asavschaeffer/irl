@@ -1,7 +1,7 @@
 'use client';
 import React, { useMemo } from 'react';
 import { createIcon } from '@gluestack-ui/icon';
-import { Path, Svg } from 'react-native-svg';
+import { G, Path, Svg } from 'react-native-svg';
 import { tva } from '@gluestack-ui/nativewind-utils/tva';
 import { cssInterop } from 'nativewind';
 import { VariantProps } from '@gluestack-ui/nativewind-utils';
@@ -158,7 +158,7 @@ const AddIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 5V19"
         strokeWidth="2"
@@ -171,7 +171,7 @@ const AddIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -182,7 +182,7 @@ const AlertCircleIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         strokeWidth="2"
@@ -201,7 +201,7 @@ const AlertCircleIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -212,7 +212,7 @@ const ArrowUpIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 19V5"
         strokeWidth="2"
@@ -225,7 +225,7 @@ const ArrowUpIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -234,7 +234,7 @@ const ArrowDownIcon = createIcon({
 
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 5V19"
         strokeWidth="2"
@@ -247,7 +247,7 @@ const ArrowDownIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -256,7 +256,7 @@ const ArrowRightIcon = createIcon({
 
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M5 12H19"
         strokeWidth="2"
@@ -269,7 +269,7 @@ const ArrowRightIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -277,7 +277,7 @@ const ArrowLeftIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M19 12H5"
         strokeWidth="2"
@@ -290,7 +290,7 @@ const ArrowLeftIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -305,22 +305,20 @@ const AtSignIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
-      <>
-        <Path
-          d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <Path
-          d="M16 7.99999V13C16 13.7956 16.3161 14.5587 16.8787 15.1213C17.4413 15.6839 18.2044 16 19 16C19.7957 16 20.5587 15.6839 21.1213 15.1213C21.6839 14.5587 22 13.7956 22 13V12C21.9999 9.74302 21.2362 7.55247 19.8333 5.78452C18.4303 4.01658 16.4706 2.77521 14.2726 2.26229C12.0747 1.74936 9.76794 1.99503 7.72736 2.95936C5.68677 3.92368 4.03241 5.54995 3.03327 7.57371C2.03413 9.59748 1.74898 11.8997 2.22418 14.1061C2.69938 16.3125 3.90699 18.2932 5.65064 19.7263C7.39429 21.1593 9.57144 21.9603 11.8281 21.9991C14.0847 22.0379 16.2881 21.3122 18.08 19.94"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </>
-    </>
+    <G>
+      <Path
+        d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <Path
+        d="M16 7.99999V13C16 13.7956 16.3161 14.5587 16.8787 15.1213C17.4413 15.6839 18.2044 16 19 16C19.7957 16 20.5587 15.6839 21.1213 15.1213C21.6839 14.5587 22 13.7956 22 13V12C21.9999 9.74302 21.2362 7.55247 19.8333 5.78452C18.4303 4.01658 16.4706 2.77521 14.2726 2.26229C12.0747 1.74936 9.76794 1.99503 7.72736 2.95936C5.68677 3.92368 4.03241 5.54995 3.03327 7.57371C2.03413 9.59748 1.74898 11.8997 2.22418 14.1061C2.69938 16.3125 3.90699 18.2932 5.65064 19.7263C7.39429 21.1593 9.57144 21.9603 11.8281 21.9991C14.0847 22.0379 16.2881 21.3122 18.08 19.94"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </G>
   ),
 });
 
@@ -332,7 +330,7 @@ const BellIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z"
         strokeWidth="2"
@@ -345,7 +343,7 @@ const BellIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -357,7 +355,7 @@ const CalendarDaysIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
         strokeWidth="2"
@@ -418,7 +416,7 @@ const CalendarDaysIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -430,14 +428,14 @@ const CheckIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M20 6L9 17L4 12"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -445,7 +443,7 @@ const CheckCircleIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22Z"
         strokeWidth="2"
@@ -458,7 +456,7 @@ const CheckCircleIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -472,14 +470,14 @@ const ChevronUpIcon = createIcon({
   viewBox: '0 0 24 24',
   d: 'M12 10L8 6L4 10',
   path: (
-    <>
+    <G>
       <Path
         d="M18 15L12 9L6 15"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -487,14 +485,14 @@ const ChevronDownIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M6 9L12 15L18 9"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -502,14 +500,14 @@ const ChevronLeftIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M15 18L9 12L15 6"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -518,14 +516,14 @@ const ChevronRightIcon = createIcon({
 
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M9 18L15 12L9 6"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -534,7 +532,7 @@ const ChevronsLeftIcon = createIcon({
 
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M11 17L6 12L11 7"
         strokeWidth="2"
@@ -547,7 +545,7 @@ const ChevronsLeftIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -556,7 +554,7 @@ const ChevronsRightIcon = createIcon({
 
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M13 17L18 12L13 7"
         strokeWidth="2"
@@ -569,7 +567,7 @@ const ChevronsRightIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -578,7 +576,7 @@ const ChevronsUpDownIcon = createIcon({
 
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M7 15L12 20L17 15"
         strokeWidth="2"
@@ -591,7 +589,7 @@ const ChevronsUpDownIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -617,14 +615,14 @@ const CircleIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -636,7 +634,7 @@ const ClockIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         strokeWidth="2"
@@ -649,7 +647,7 @@ const ClockIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -661,7 +659,7 @@ const CloseIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M18 6L6 18"
         strokeWidth="2"
@@ -674,7 +672,7 @@ const CloseIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -682,7 +680,7 @@ const CloseCircleIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         strokeWidth="2"
@@ -701,7 +699,7 @@ const CloseCircleIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -714,7 +712,7 @@ const CopyIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M20 9H11C9.89543 9 9 9.89543 9 11V20C9 21.1046 9.89543 22 11 22H20C21.1046 22 22 21.1046 22 20V11C22 9.89543 21.1046 9 20 9Z"
         strokeWidth="2"
@@ -727,7 +725,7 @@ const CopyIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -739,7 +737,7 @@ const DownloadIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
         strokeWidth="2"
@@ -758,7 +756,7 @@ const DownloadIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -769,7 +767,7 @@ const EditIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13"
         strokeWidth="2"
@@ -782,7 +780,7 @@ const EditIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -793,7 +791,7 @@ const EyeIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M2 12C2 12 5 5 12 5C19 5 22 12 22 12C22 12 19 19 12 19C5 19 2 12 2 12Z"
         strokeWidth="2"
@@ -806,7 +804,7 @@ const EyeIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -816,7 +814,7 @@ const EyeOffIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M9.88 9.88C9.58525 10.1546 9.34884 10.4859 9.18487 10.8538C9.02091 11.2218 8.93274 11.6191 8.92563 12.0219C8.91852 12.4247 8.99262 12.8248 9.14351 13.1984C9.29439 13.5719 9.51897 13.9113 9.80384 14.1962C10.0887 14.481 10.4281 14.7056 10.8016 14.8565C11.1752 15.0074 11.5753 15.0815 11.9781 15.0744C12.3809 15.0673 12.7782 14.9791 13.1461 14.8151C13.5141 14.6512 13.8453 14.4147 14.12 14.12"
         strokeWidth="2"
@@ -841,7 +839,7 @@ const EyeOffIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -852,14 +850,14 @@ const FavouriteIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M20.42 4.58C19.9183 4.07658 19.3222 3.67714 18.6658 3.40459C18.0094 3.13204 17.3057 2.99174 16.595 2.99174C15.8843 2.99174 15.1806 3.13204 14.5242 3.40459C13.8678 3.67714 13.2717 4.07658 12.77 4.58L12 5.36L11.23 4.58C10.7283 4.07658 10.1322 3.67714 9.47582 3.40459C8.81944 3.13204 8.11571 2.99174 7.40499 2.99174C6.69428 2.99174 5.99055 3.13204 5.33417 3.40459C4.67779 3.67714 4.08167 4.07658 3.57999 4.58C1.45999 6.7 1.32999 10.28 3.99999 13L12 21L20 13C22.67 10.28 22.54 6.7 20.42 4.58Z"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -870,7 +868,7 @@ const GlobeIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         strokeWidth="2"
@@ -889,7 +887,7 @@ const GlobeIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -900,7 +898,7 @@ const GripVerticalIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M9 13C9.55228 13 10 12.5523 10 12C10 11.4477 9.55228 11 9 11C8.44772 11 8 11.4477 8 12C8 12.5523 8.44772 13 9 13Z"
         strokeWidth="2"
@@ -937,7 +935,7 @@ const GripVerticalIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -948,7 +946,7 @@ const HelpCircleIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         strokeWidth="2"
@@ -967,7 +965,7 @@ const HelpCircleIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -978,7 +976,7 @@ const InfoIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         strokeWidth="2"
@@ -997,7 +995,7 @@ const InfoIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1008,7 +1006,7 @@ const LinkIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M10 13C10.4295 13.5741 10.9774 14.0492 11.6066 14.3929C12.2357 14.7367 12.9315 14.9411 13.6467 14.9923C14.3618 15.0435 15.0796 14.9404 15.7513 14.6898C16.4231 14.4392 17.0331 14.0471 17.54 13.54L20.54 10.54C21.4508 9.59699 21.9548 8.33397 21.9434 7.02299C21.932 5.71201 21.4061 4.45794 20.4791 3.5309C19.5521 2.60386 18.298 2.07802 16.987 2.06663C15.676 2.05523 14.413 2.55921 13.47 3.47L11.75 5.18"
         strokeWidth="2"
@@ -1021,7 +1019,7 @@ const LinkIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1031,7 +1029,7 @@ const ExternalLinkIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11"
         strokeWidth="2"
@@ -1050,7 +1048,7 @@ const ExternalLinkIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1061,14 +1059,14 @@ const LoaderIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M21 12C20.9999 13.9006 20.3981 15.7524 19.2809 17.2899C18.1637 18.8275 16.5885 19.9719 14.7809 20.5592C12.9733 21.1464 11.0262 21.1464 9.21864 20.559C7.41109 19.9716 5.83588 18.8271 4.71876 17.2895C3.60165 15.7519 2.99999 13.9001 3 11.9995C3.00001 10.0989 3.60171 8.24711 4.71884 6.7095C5.83598 5.17189 7.4112 4.02741 9.21877 3.44008C11.0263 2.85274 12.9734 2.85272 14.781 3.44"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1079,7 +1077,7 @@ const LockIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z"
         strokeWidth="2"
@@ -1092,7 +1090,7 @@ const LockIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1103,7 +1101,7 @@ const MailIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4Z"
         strokeWidth="2"
@@ -1116,7 +1114,7 @@ const MailIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1127,7 +1125,7 @@ const MenuIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M4 12H20"
         strokeWidth="2"
@@ -1146,7 +1144,7 @@ const MenuIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1157,14 +1155,14 @@ const MessageCircleIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7117 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0034 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92176 4.44061 8.37485 5.27072 7.03255C6.10083 5.69025 7.28825 4.60557 8.7 3.9C9.87812 3.30493 11.1801 2.99656 12.5 3H13C15.0843 3.11499 17.053 3.99476 18.5291 5.47086C20.0052 6.94695 20.885 8.91565 21 11V11.5Z"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1176,14 +1174,14 @@ const MoonIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 3C10.8134 4.19491 10.1488 5.81141 10.1518 7.49539C10.1547 9.17936 10.825 10.7935 12.0157 11.9843C13.2065 13.175 14.8206 13.8453 16.5046 13.8482C18.1886 13.8512 19.8051 13.1866 21 12C21 13.78 20.4722 15.5201 19.4832 17.0001C18.4943 18.4802 17.0887 19.6337 15.4442 20.3149C13.7996 20.9961 11.99 21.1743 10.2442 20.8271C8.49836 20.4798 6.89472 19.6226 5.63604 18.364C4.37737 17.1053 3.5202 15.5016 3.17294 13.7558C2.82567 12.01 3.0039 10.2004 3.68509 8.55585C4.36628 6.91131 5.51983 5.50571 6.99987 4.51677C8.47991 3.52784 10.22 3 12 3V3Z"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1194,14 +1192,14 @@ const PaperclipIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M21.44 11.05L12.25 20.24C11.1242 21.3658 9.59718 21.9983 8.005 21.9983C6.41282 21.9983 4.88584 21.3658 3.76 20.24C2.63416 19.1141 2.00166 17.5872 2.00166 15.995C2.00166 14.4028 2.63416 12.8758 3.76 11.75L12.33 3.17997C13.0806 2.42808 14.0991 2.00515 15.1615 2.00421C16.2239 2.00328 17.2431 2.42441 17.995 3.17497C18.7469 3.92554 19.1698 4.94404 19.1708 6.00644C19.1717 7.06883 18.7506 8.08808 18 8.83997L9.41 17.41C9.03472 17.7853 8.52573 17.9961 7.995 17.9961C7.46427 17.9961 6.95528 17.7853 6.58 17.41C6.20472 17.0347 5.99389 16.5257 5.99389 15.995C5.99389 15.4642 6.20472 14.9553 6.58 14.58L15.07 6.09997"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1212,14 +1210,14 @@ const PhoneIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7294C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1469 21.5901 20.9046 21.7335 20.6408 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5342 11.19 18.85C8.77383 17.3147 6.72534 15.2662 5.19 12.85C3.49998 10.2412 2.44824 7.271 2.12 4.18001C2.09501 3.90347 2.12788 3.62477 2.2165 3.36163C2.30513 3.09849 2.44757 2.85669 2.63477 2.65163C2.82196 2.44656 3.04981 2.28271 3.30379 2.17053C3.55778 2.05834 3.83234 2.00027 4.11 2.00001H7.11C7.59531 1.99523 8.06579 2.16708 8.43376 2.48354C8.80173 2.79999 9.04208 3.23945 9.11 3.72001C9.23662 4.68007 9.47145 5.62273 9.81 6.53001C9.94455 6.88793 9.97366 7.27692 9.89391 7.65089C9.81415 8.02485 9.62886 8.36812 9.36 8.64001L8.09 9.91001C9.51356 12.4136 11.5865 14.4865 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9752 14.1859 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1230,7 +1228,7 @@ const PlayIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         strokeWidth="2"
@@ -1243,7 +1241,7 @@ const PlayIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1254,14 +1252,14 @@ const RemoveIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M5 12H19"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1272,7 +1270,7 @@ const RepeatIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M17 2L21 6L17 10"
         strokeWidth="2"
@@ -1297,7 +1295,7 @@ const RepeatIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1307,7 +1305,7 @@ const Repeat1Icon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M17 2L21 6L17 10"
         strokeWidth="2"
@@ -1338,7 +1336,7 @@ const Repeat1Icon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1349,7 +1347,7 @@ const SearchIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
         strokeWidth="2"
@@ -1362,7 +1360,7 @@ const SearchIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1373,7 +1371,7 @@ const SettingsIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12.22 2H11.78C11.2496 2 10.7409 2.21071 10.3658 2.58579C9.99072 2.96086 9.78 3.46957 9.78 4V4.18C9.77964 4.53073 9.68706 4.87519 9.51154 5.17884C9.33602 5.48248 9.08374 5.73464 8.78 5.91L8.35 6.16C8.04596 6.33554 7.70108 6.42795 7.35 6.42795C6.99893 6.42795 6.65404 6.33554 6.35 6.16L6.2 6.08C5.74107 5.81526 5.19584 5.74344 4.684 5.88031C4.17217 6.01717 3.73555 6.35154 3.47 6.81L3.25 7.19C2.98526 7.64893 2.91345 8.19416 3.05031 8.706C3.18717 9.21783 3.52154 9.65445 3.98 9.92L4.13 10.02C4.43228 10.1945 4.68362 10.4451 4.85905 10.7468C5.03448 11.0486 5.1279 11.391 5.13 11.74V12.25C5.1314 12.6024 5.03965 12.949 4.86405 13.2545C4.68844 13.5601 4.43521 13.8138 4.13 13.99L3.98 14.08C3.52154 14.3456 3.18717 14.7822 3.05031 15.294C2.91345 15.8058 2.98526 16.3511 3.25 16.81L3.47 17.19C3.73555 17.6485 4.17217 17.9828 4.684 18.1197C5.19584 18.2566 5.74107 18.1847 6.2 17.92L6.35 17.84C6.65404 17.6645 6.99893 17.5721 7.35 17.5721C7.70108 17.5721 8.04596 17.6645 8.35 17.84L8.78 18.09C9.08374 18.2654 9.33602 18.5175 9.51154 18.8212C9.68706 19.1248 9.77964 19.4693 9.78 19.82V20C9.78 20.5304 9.99072 21.0391 10.3658 21.4142C10.7409 21.7893 11.2496 22 11.78 22H12.22C12.7504 22 13.2591 21.7893 13.6342 21.4142C14.0093 21.0391 14.22 20.5304 14.22 20V19.82C14.2204 19.4693 14.3129 19.1248 14.4885 18.8212C14.664 18.5175 14.9163 18.2654 15.22 18.09L15.65 17.84C15.954 17.6645 16.2989 17.5721 16.65 17.5721C17.0011 17.5721 17.346 17.6645 17.65 17.84L17.8 17.92C18.2589 18.1847 18.8042 18.2566 19.316 18.1197C19.8278 17.9828 20.2645 17.6485 20.53 17.19L20.75 16.8C21.0147 16.3411 21.0866 15.7958 20.9497 15.284C20.8128 14.7722 20.4785 14.3356 20.02 14.07L19.87 13.99C19.5648 13.8138 19.3116 13.5601 19.136 13.2545C18.9604 12.949 18.8686 12.6024 18.87 12.25V11.75C18.8686 11.3976 18.9604 11.051 19.136 10.7455C19.3116 10.4399 19.5648 10.1862 19.87 10.01L20.02 9.92C20.4785 9.65445 20.8128 9.21783 20.9497 8.706C21.0866 8.19416 21.0147 7.64893 20.75 7.19L20.53 6.81C20.2645 6.35154 19.8278 6.01717 19.316 5.88031C18.8042 5.74344 18.2589 5.81526 17.8 6.08L17.65 6.16C17.346 6.33554 17.0011 6.42795 16.65 6.42795C16.2989 6.42795 15.954 6.33554 15.65 6.16L15.22 5.91C14.9163 5.73464 14.664 5.48248 14.4885 5.17884C14.3129 4.87519 14.2204 4.53073 14.22 4.18V4C14.22 3.46957 14.0093 2.96086 13.6342 2.58579C13.2591 2.21071 12.7504 2 12.22 2V2Z"
         strokeWidth="2"
@@ -1386,7 +1384,7 @@ const SettingsIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1397,7 +1395,7 @@ const ShareIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M18 8C19.6569 8 21 6.65685 21 5C21 3.34315 19.6569 2 18 2C16.3431 2 15 3.34315 15 5C15 6.65685 16.3431 8 18 8Z"
         strokeWidth="2"
@@ -1428,7 +1426,7 @@ const ShareIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1439,7 +1437,7 @@ const SlashIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         strokeWidth="2"
@@ -1452,7 +1450,7 @@ const SlashIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1463,14 +1461,14 @@ const StarIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1481,7 +1479,7 @@ const SunIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
         strokeWidth="2"
@@ -1536,7 +1534,7 @@ const SunIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1547,7 +1545,7 @@ const ThreeDotsIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
         strokeWidth="2"
@@ -1566,7 +1564,7 @@ const ThreeDotsIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1577,7 +1575,7 @@ const TrashIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M3 6H21"
         strokeWidth="2"
@@ -1596,7 +1594,7 @@ const TrashIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 
@@ -1607,7 +1605,7 @@ const UnlockIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
-    <>
+    <G>
       <Path
         d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z"
         strokeWidth="2"
@@ -1620,7 +1618,7 @@ const UnlockIcon = createIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </>
+    </G>
   ),
 });
 

@@ -64,7 +64,7 @@
     "expo-updates": "~0.28.17",
     "expo-web-browser": "~14.2.0",
     "i18n-js": "^4.4.3",
-    "lucide-react-native": "^0.359.0",
+    "lucide-react-native": "^0.451.0",
     "nativewind": "4.0.36",
     "postcss-loader": "^8.1.1",
     "react": "19.0.0",
