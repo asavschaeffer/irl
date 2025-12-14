@@ -69,6 +69,8 @@ config.resolver.extraNodeModules = {
   'react-native': path.resolve((workspaceRoot || projectRoot), 'node_modules/react-native'),
   // Ensure scheduler also comes from the same tree (common culprit in hook-call issues on web)
   scheduler: path.resolve((workspaceRoot || projectRoot), 'node_modules/scheduler'),
+  // ws is a Node.js WebSocket library; React Native has a built-in WebSocket, so we use a shim
+  ws: path.resolve(projectRoot, 'ws-shim.js'),
 };
 
 // Add workspace packages to resolver - help Metro find @app-launch-kit packages
@@ -170,4 +172,25 @@ try {
   }
 } catch (_) {}
 
-module.exports = withUnitools(configWithNativeWind);
+const finalConfig = withUnitools(configWithNativeWind);
+
+// Apply ws shim AFTER all other config transformations to ensure it's not overwritten
+// ws is a Node.js WebSocket library that doesn't work in React Native
+const postTransformResolveRequest = finalConfig.resolver.resolveRequest;
+finalConfig.resolver.resolveRequest = (context, moduleName, platform) => {
+  // Redirect 'ws' to our shim on native platforms
+  if (moduleName === 'ws' && platform !== 'web') {
+    return {
+      filePath: path.resolve(projectRoot, 'ws-shim.js'),
+      type: 'sourceFile',
+    };
+  }
+  
+  // Fall back to the resolver set by NativeWind/Unitools
+  if (postTransformResolveRequest) {
+    return postTransformResolveRequest(context, moduleName, platform);
+  }
+  return context.resolveRequest(context, moduleName, platform);
+};
+
+module.exports = finalConfig;
