@@ -53,7 +53,7 @@
           }
         }
       ],
-      ["expo-router"],
+      ["expo-router", { "root": "./app" }],
       ["expo-localization"]
     ],
     "experiments": {

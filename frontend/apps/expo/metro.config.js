@@ -1,9 +1,37 @@
 const { getDefaultConfig } = require('expo/metro-config');
-const findWorkspaceRoot = require('find-yarn-workspace-root');
+let findYarnWorkspaceRoot;
+try {
+  // Optional: only works when using Yarn workspaces (yarn.lock present)
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  findYarnWorkspaceRoot = require('find-yarn-workspace-root');
+} catch (_) {
+  findYarnWorkspaceRoot = null;
+}
 const { withNativeWind } = require('nativewind/metro');
 const { withUnitools } = require('@unitools/metro-config');
 const path = require('path');
 const fs = require('fs');
+
+function findNpmWorkspaceRoot(startDir) {
+  let dir = startDir;
+  // Walk up until we find a package.json with "workspaces" (npm/pnpm/yarn all use this field)
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    const pkgPath = path.join(dir, 'package.json');
+    if (fs.existsSync(pkgPath)) {
+      try {
+        const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+        if (pkg && pkg.workspaces) return dir;
+      } catch (_) {
+        // ignore JSON errors and keep walking up
+      }
+    }
+
+    const parent = path.dirname(dir);
+    if (!parent || parent === dir) return startDir;
+    dir = parent;
+  }
+}
 
 // Ensure EXPO_PUBLIC_* vars from this app's `.env` are available to Metro/NativeWind during bundling.
 // In some monorepo/Windows setups Expo's automatic env loading can be unreliable.
@@ -13,19 +41,21 @@ try {
 } catch (_) {}
 
 // eslint-disable-next-line no-undef
-const workspaceRoot = findWorkspaceRoot(__dirname);
+const workspaceRoot =
+  (findYarnWorkspaceRoot && findYarnWorkspaceRoot(__dirname)) ||
+  findNpmWorkspaceRoot(__dirname);
 // Find the project and workspace directories
 // eslint-disable-next-line no-undef
 const projectRoot = __dirname;
 
 const config = getDefaultConfig(projectRoot);
 config.transformer.unstable_allowRequireContext = true;
-config.watchFolders = [workspaceRoot];
+config.watchFolders = workspaceRoot ? [workspaceRoot] : [];
 
 // 2. Let Metro know where to resolve packages and in what order
 config.resolver.nodeModulesPaths = [
   path.resolve(projectRoot, 'node_modules'),
-  path.resolve(workspaceRoot, 'node_modules'),
+  ...(workspaceRoot ? [path.resolve(workspaceRoot, 'node_modules')] : []),
 ];
 // Critical for monorepos on web:
 // Prevent Metro from walking up directory trees and accidentally resolving a *second* copy of react/react-dom
@@ -34,11 +64,11 @@ config.resolver.disableHierarchicalLookup = true;
 
 // Force a single React/ReactDOM/React-Native instance from the workspace root.
 config.resolver.extraNodeModules = {
-  react: path.resolve(workspaceRoot, 'node_modules/react'),
-  'react-dom': path.resolve(workspaceRoot, 'node_modules/react-dom'),
-  'react-native': path.resolve(workspaceRoot, 'node_modules/react-native'),
+  react: path.resolve((workspaceRoot || projectRoot), 'node_modules/react'),
+  'react-dom': path.resolve((workspaceRoot || projectRoot), 'node_modules/react-dom'),
+  'react-native': path.resolve((workspaceRoot || projectRoot), 'node_modules/react-native'),
   // Ensure scheduler also comes from the same tree (common culprit in hook-call issues on web)
-  scheduler: path.resolve(workspaceRoot, 'node_modules/scheduler'),
+  scheduler: path.resolve((workspaceRoot || projectRoot), 'node_modules/scheduler'),
 };
 
 // Add workspace packages to resolver - help Metro find @app-launch-kit packages

@@ -15,9 +15,10 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@dev-plugins/react-navigation": "~0.2.0",
+    "@dev-plugins/react-navigation": "^0.4.0",
     "@expo-google-fonts/roboto": "^0.2.3",
     "@expo/config-plugins": "~10.1.1",
+    "@expo/html-elements": "^0.10.1",
     "@expo/vector-icons": "^14.1.0",
     "@expo/webpack-config": "~19.0.1",
     "@react-native-async-storage/async-storage": "2.1.2",
@@ -28,7 +29,9 @@
     "@react-native-firebase/firestore": "^20.5.0",
     "@react-native-firebase/storage": "^20.5.0",
     "@react-native-google-signin/google-signin": "^12.0.0",
+    "@react-navigation/bottom-tabs": "^7.8.12",
     "@react-navigation/native": "^7.0.14",
+    "@react-navigation/native-stack": "^7.8.6",
     "@stripe/react-stripe-js": "^2.7.0",
     "@stripe/stripe-js": "^3.3.0",
     "@stripe/stripe-react-native": "0.45.0",
@@ -68,6 +71,7 @@
     "react-dom": "19.0.0",
     "react-hook-form": "^7.51.0",
     "react-native": "0.79.6",
+    "react-native-css-interop": "0.0.36",
     "react-native-gesture-handler": "~2.24.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-reanimated": "~3.17.4",
@@ -76,7 +80,6 @@
     "react-native-svg": "15.11.2",
     "react-native-url-polyfill": "^2.0.0",
     "react-native-web": "^0.20.0",
-    "react-native-css-interop": "0.0.36",
     "tailwindcss": "^3.4.3",
     "zod": "^3.22.4"
   },
