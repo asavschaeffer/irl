@@ -19,6 +19,7 @@ import { usePathname, useRouter } from '@unitools/router';
 import { Text } from '@app-launch-kit/components/primitives/text';
 import { Pressable } from '@app-launch-kit/components/primitives/pressable';
 import { useAuth } from '@app-launch-kit/modules/auth';
+import { Platform } from 'react-native';
 
 export default function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -33,20 +34,24 @@ export default function Header() {
     >
       <HStack className="items-center justify-between h-12 md:h-10 md:px-6 px-4">
         <HStack className="gap-2 items-center justify-between">
-          <Box className="hidden md:flex">
-            <Link href="/">
-              {colorMode === 'light' ? (
-                <Box className="w-[180px] h-[35px]">
-                  <FullLogoLight />
-                </Box>
-              ) : (
-                <Box className="w-[180px] h-[35px]">
-                  <FullLogoDark />
-                </Box>
-              )}
-            </Link>
-          </Box>
-          <Box className="md:hidden">
+          {/* Desktop logo - only show on web */}
+          {Platform.OS === 'web' && (
+            <Box className="hidden md:flex">
+              <Link href="/">
+                {colorMode === 'light' ? (
+                  <Box className="w-[180px] h-[35px]">
+                    <FullLogoLight />
+                  </Box>
+                ) : (
+                  <Box className="w-[180px] h-[35px]">
+                    <FullLogoDark />
+                  </Box>
+                )}
+              </Link>
+            </Box>
+          )}
+          {/* Mobile logo - show on native, or on web at mobile sizes */}
+          <Box className={Platform.OS === 'web' ? "md:hidden" : ""}>
             {routePath === config.routes.redirectAfterAuth.path ||
             routePath === '/' ? (
               <Link href="/">
@@ -77,25 +82,28 @@ export default function Header() {
           </Box>
         </HStack>
 
-        <HStack className="items-center sm:gap-4 gap-1">
+        <HStack className="items-center gap-2">
           {userId ? (
             <AuthenticatedHeader />
           ) : (
             <>
-              <Link
-                href="https://docs.applaunchk.it/"
-                className="hidden md:flex  border border-secondary-400 rounded px-4 py-[5px] group/link"
-              >
-                <HStack className="items-center gap-3">
-                  <LinkText className="sm:text-base text-primary-500 group-hover/link:text-primary-600 no-underline group-active/link:text-primary-600 font-medium">
-                    View docs
-                  </LinkText>
-                  <Icon
-                    as={ExternalLinkIcon}
-                    className="stroke-background-800 h-[18px] w-[18px]"
-                  />
-                </HStack>
-              </Link>
+              {/* View docs - show on web desktop only */}
+              {Platform.OS === 'web' && (
+                <Link
+                  href="https://docs.applaunchk.it/"
+                  className="hidden md:flex border border-secondary-400 rounded px-4 py-[5px] group/link"
+                >
+                  <HStack className="items-center gap-3">
+                    <LinkText className="text-base text-primary-500 group-hover/link:text-primary-600 no-underline group-active/link:text-primary-600 font-medium">
+                      View docs
+                    </LinkText>
+                    <Icon
+                      as={ExternalLinkIcon}
+                      className="stroke-background-800 h-[18px] w-[18px]"
+                    />
+                  </HStack>
+                </Link>
+              )}
               <Pressable
                 onPress={toggleColorMode}
                 className="items-center bg-background-50 rounded-full p-[10px]"

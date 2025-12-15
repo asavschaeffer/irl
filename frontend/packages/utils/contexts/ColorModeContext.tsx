@@ -1,5 +1,6 @@
 'use client';
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import { useColorScheme } from 'react-native';
 
 type ContextType = {
   colorMode: 'light' | 'dark';
@@ -7,7 +8,7 @@ type ContextType = {
 };
 
 export const ColorContext = createContext<ContextType>({
-  colorMode: 'dark',
+  colorMode: 'light',
   toggleColorMode: () => {},
 });
 
@@ -16,7 +17,17 @@ export const ColorModeProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [colorMode, setColorMode] = useState<'light' | 'dark'>('dark');
+  const systemColorScheme = useColorScheme();
+  const [colorMode, setColorMode] = useState<'light' | 'dark'>(
+    systemColorScheme || 'light'
+  );
+
+  // Update color mode when system preference changes
+  useEffect(() => {
+    if (systemColorScheme) {
+      setColorMode(systemColorScheme);
+    }
+  }, [systemColorScheme]);
 
   const toggleColorMode = () => {
     setColorMode(colorMode === 'dark' ? 'light' : 'dark');

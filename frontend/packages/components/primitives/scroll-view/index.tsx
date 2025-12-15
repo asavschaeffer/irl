@@ -1,3 +1,11 @@
 'use client';
+import { ScrollView as RNScrollView } from 'react-native';
+import { cssInterop } from 'nativewind';
 
-export { ScrollView } from 'react-native';
+// Apply cssInterop to enable className prop with NativeWind
+cssInterop(RNScrollView, {
+  className: 'style',
+  contentContainerClassName: 'contentContainerStyle',
+});
+
+export { RNScrollView as ScrollView };

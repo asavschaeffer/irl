@@ -42,7 +42,7 @@
     "@gluestack-ui/toast": "^1.0.7",
     "@gluestack-ui/tooltip": "^0.1.32",
     "@gorhom/bottom-sheet": "4.6.3",
-    "@legendapp/motion": "^2.3.0",
+    "@legendapp/motion": "^2.5.3",
     "@unitools/image": "0.0.5",
     "@unitools/link": "0.0.4",
     "nativewind": "4.0.36",

@@ -6,6 +6,7 @@ import {
 } from '@app-launch-kit/utils/contexts/ColorModeContext';
 import { useReactNavigationDevTools } from '@dev-plugins/react-navigation';
 import { SafeAreaView } from '@app-launch-kit/components/primitives/safe-area-view';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Platform, StatusBar } from 'react-native';
 import {
   useFonts,
@@ -69,9 +70,11 @@ export default function RootLayout() {
   }
 
   return (
-    <ColorModeProvider>
-      <Layout />
-    </ColorModeProvider>
+    <SafeAreaProvider>
+      <ColorModeProvider>
+        <Layout />
+      </ColorModeProvider>
+    </SafeAreaProvider>
   );
 }
 
@@ -87,42 +90,31 @@ function Layout() {
   useEffect(() => {
     if (pathname === '/firebaseauth/link') router.back();
   }, [pathname]);
+  
+  const bgColor = colorMode === 'light' ? '#fff' : '#121212';
+  
   return (
     <SessionContextProvider>
       <GluestackUIProvider mode={colorMode}>
-        <OverlayProvider>
-          <AuthLoader>
-            {/* // top SafeAreaView */}
-            <SafeAreaView
-              className={`${colorMode === 'light' ? 'bg-[#fff]' : 'bg-[#121212]'}`}
-            />
-            <StatusBar
-              barStyle={
-                colorMode === 'light' ? 'dark-content' : 'light-content'
-              }
-            />
-
-            {/* bottom SafeAreaView */}
-            <SafeAreaView
-              className={`${
-                colorMode === 'light' ? 'bg-[#fff]' : 'bg-[#121212]'
-              } flex-1 overflow-hidden`}
-              style={{
-                paddingTop:
-                  Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+        <AuthLoader>
+          <StatusBar
+            barStyle={colorMode === 'light' ? 'dark-content' : 'light-content'}
+          />
+          <SafeAreaView
+            style={{
+              flex: 1,
+              backgroundColor: bgColor,
+              paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+            }}
+          >
+            <Stack
+              screenOptions={{
+                headerShown: false,
+                navigationBarColor: bgColor,
               }}
-            >
-              {/* stack for all the screens */}
-              <Stack
-                screenOptions={{
-                  headerShown: false,
-                  navigationBarColor:
-                    colorMode === 'light' ? '#fff' : '#121212',
-                }}
-              />
-            </SafeAreaView>
-          </AuthLoader>
-        </OverlayProvider>
+            />
+          </SafeAreaView>
+        </AuthLoader>
       </GluestackUIProvider>
     </SessionContextProvider>
   );
